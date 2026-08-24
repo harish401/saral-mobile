@@ -1,0 +1,142 @@
+{
+  "welcome": {
+    "title": "Welcome to Saaral Salary",
+    "subtitle": "Get started with Saaral Salary",
+    "login": "Already have an account? Sign in",
+    "signup": "Get Started"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "subtitle": "Let's keep our coast clean and earn rewards",
+    "walletBalance": "WALLET BALANCE",
+    "availableBalance": "Available Balance",
+    "viewWallet": "View Wallet",
+    "ecoCoins": "Your Eco Coins",
+    "viewCoins": "View Coins",
+    "upcomingEvents": "Upcoming Events",
+    "recentSubmissions": "Recent Submission",
+    "viewAll": "View All",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "submissions": "Submissions",
+    "impactMatters": "Your Impact Matters!",
+    "impactQuote": "\"Act Today. Create a Cleaner Tomorrow.\"",
+    "waste": "Waste",
+    "events": "Events"
+  },
+  "tabs": {
+    "home": "Home",
+    "events": "Events",
+    "submit": "Submit",
+    "wallet": "Wallet",
+    "profile": "Profile"
+  },
+  "submissions": {
+    "title": "Recent Submissions",
+    "all": "All",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "searchPlaceholder": "Search by event or category...",
+    "weight": "Weight",
+    "noSubmissions": "No submissions found."
+  },
+  "checkinSuccess": {
+    "title": "Confirm Check-in",
+    "successTitle": "You have successfully checked-in!",
+    "eventsTag": "Events",
+    "time": "07:00 AM - 10:00 AM",
+    "participantsJoined": "120+ participants joined",
+    "volunteerName": "Volunteer Name",
+    "viewEventDetails": "View Event Details"
+  },
+  "submissionSuccess": {
+    "title": "Submission Approved",
+    "greatJob": "Great Job !",
+    "subtitle": "Your cleanup submission has been approved.",
+    "submittedOn": "Submitted On",
+    "weight": "Weight",
+    "location": "Location",
+    "submissionId": "Submission ID",
+    "viewMySubmission": "View My Submission",
+    "backToHome": "Back to Home"
+  },
+  "profile": {
+    "personalDetails": "Personal Details",
+    "personalDetailsDesc": "View and edit your profile info",
+    "bankDetails": "Bank Details",
+    "bankDetailsDesc": "Manage bank and UPI info",
+    "language": "Language",
+    "languageDesc": "Choose your preferred language",
+    "terms": "Terms & Conditions",
+    "termsDesc": "Read our policies",
+    "settings": "Settings",
+    "settingsDesc": "App settings and preferences",
+    "logout": "Log Out"
+  },
+  "personalDetails": {
+    "title": "Personal Details",
+    "changePhoto": "Change Photo",
+    "name": "Name",
+    "mobile": "Mobile Number",
+    "district": "District",
+    "village": "Village / Town",
+    "save": "Save Changes"
+  },
+  "bankDetails": {
+    "title": "Bank Details",
+    "accountDetails": "Account Details",
+    "holderName": "Account Holder Name",
+    "accountNumber": "Account Number",
+    "ifsc": "IFSC Code",
+    "findIfsc": "Find IFSC Code",
+    "upiDetails": "UPI Details",
+    "upiId": "UPI ID",
+    "save": "Save Changes"
+  },
+  "languageSettings": {
+    "title": "Language",
+    "choose": "Choose Language",
+    "selectPreferred": "Select your preferred language",
+    "save": "Save Preference"
+  },
+  "settings": {
+    "title": "Settings",
+    "notifications": "Notifications",
+    "notificationsDesc": "Manage notification preferences",
+    "language": "Language",
+    "languageDesc": "Change app language",
+    "logout": "Log Out of App"
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "section1Title": "1. Introduction",
+    "section1Text": "Welcome to Saaral Salary. By using our app, you agree to these terms.",
+    "section2Title": "2. Data Privacy",
+    "section2Text": "Your personal data, ID documents, and bank details are stored securely.",
+    "section3Title": "3. User Responsibilities",
+    "section3Text": "You are responsible for maintaining confidentiality of your account."
+  },
+  "language_selection": {
+    "title": "Choose Language",
+    "subtitle": "Choose your preference",
+    "english": "English",
+    "tamil": "தமிழ்",
+    "language_preference": "Language Preference"
+  },
+  "onboarding": {
+    "title_part1": "For the Ocean",
+    "title_part2": "We Love",
+    "subtitle": "Collect. Clean. Earn. Protect.",
+    "description": "Join the Clean Tamil Nadu Mission.",
+    "get_started": "Get Started"
+  },
+  "auth": {
+    "verify_title": "Verify your number",
+    "verify_subtitle": "Enter the 6-digit OTP sent to",
+    "resend_otp": "Resend OTP",
+    "did_not_receive": "Didn't receive OTP?",
+    "resend_sms": "Resend via SMS"
+  }
+}
