@@ -94,7 +94,9 @@ export default function VerifyScreen() {
         isNewRegistration
       );
 
-      if (isNewRegistration || data.user?.onboardingStatus === 'INCOMPLETE') {
+      if (isNewRegistration) {
+        router.replace('/(onboarding)/success');
+      } else if (data.user?.onboardingStatus === 'INCOMPLETE') {
         router.replace('/(onboarding)/profile');
       } else {
         router.replace('/(app)');

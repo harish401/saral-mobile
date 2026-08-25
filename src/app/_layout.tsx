@@ -51,20 +51,11 @@ export default function RootLayout() {
   if (checkingMaintenance && pathname !== '/maintenance') {
     return (
       <View style={splashStyles.container}>
-        <View style={splashStyles.logoBox}>
-          <Image 
-            source={require('../../assets/images/image.png')} 
-            style={splashStyles.logoImage} 
-            resizeMode="contain" 
-          />
-          <AppText variant="h1" color={colors.primaryDark} style={splashStyles.logoTitle}>
-            SAARAL
-          </AppText>
-          <AppText variant="h3" color={colors.primaryDark} style={splashStyles.logoSubtitle}>
-            SALARY
-          </AppText>
-        </View>
-
+        <Image 
+          source={require('../../assets/images/image copy 9.png')} 
+          style={splashStyles.fullSplashImage} 
+          resizeMode="contain" 
+        />
         <View style={splashStyles.loaderBox}>
           <ActivityIndicator size="small" color={colors.primary} />
         </View>
@@ -86,29 +77,11 @@ const splashStyles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: spacing.xl,
+    padding: spacing.md,
   },
-  logoBox: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoImage: {
-    width: 130,
-    height: 130,
-    marginBottom: spacing.md,
-  },
-  logoTitle: {
-    fontSize: 28,
-    fontWeight: '800',
-    letterSpacing: 2,
-    marginTop: spacing.xs,
-  },
-  logoSubtitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    letterSpacing: 3,
-    color: colors.primary,
-    marginTop: 2,
+  fullSplashImage: {
+    width: '80%',
+    height: '60%',
   },
   loaderBox: {
     position: 'absolute',

@@ -18,9 +18,6 @@ export default function MaintenanceScreen() {
   const checkStatus = async () => {
     try {
       setLoading(true);
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 8000);
-
       const data = await apiFetch<any>('/auth/global-settings', { timeoutMs: 8000 });
       if (data?.maintenanceMessage) {
         setMessage(data.maintenanceMessage);
