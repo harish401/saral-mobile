@@ -10,14 +10,18 @@ import { StepIndicator } from '../../components/ui/StepIndicator';
 import { colors, spacing, borderRadius } from '../../theme/theme';
 import { useAuthStore } from '../../store/authStore';
 
+import { AppInput } from '../../components/ui/AppInput';
+
 const { width } = Dimensions.get('window');
 
 export default function DocumentsScreen() {
   const router = useRouter();
-  const { updateOnboardingData } = useAuthStore();
+  const { updateOnboardingData, onboardingData } = useAuthStore();
   
-  const [docType, setDocType] = useState('Aadhaar Card');
+  const [docType, setDocType] = useState('Ration Card');
   const [docUri, setDocUri] = useState('');
+  const [rationCardNumber, setRationCardNumber] = useState((onboardingData as any)?.rationCard || '');
+  const [aadhaarNumber, setAadhaarNumber] = useState((onboardingData as any)?.aadhaar || '');
 
   const handlePick = () => {
     Alert.alert('Upload Document', 'Choose how you want to upload', [
@@ -51,11 +55,14 @@ export default function DocumentsScreen() {
   };
 
   const handleContinue = () => {
-    if (docType === 'Aadhaar Card') {
-      updateOnboardingData({ aadhaar: docUri } as any);
-    } else {
-      updateOnboardingData({ rationCard: docUri } as any);
+    if (!rationCardNumber && docType === 'Ration Card') {
+      Alert.alert('Ration Card Required', 'Please enter your Ration Card Number.');
+      return;
     }
+    updateOnboardingData({ 
+      rationCard: rationCardNumber || docUri, 
+      aadhaar: aadhaarNumber || docUri 
+    } as any);
     router.push('/(onboarding)/bank');
   };
 
@@ -85,21 +92,45 @@ export default function DocumentsScreen() {
 
           <AppText variant="body" style={styles.label}>Choose Document Type</AppText>
           
-          <TouchableOpacity 
-            style={[styles.docTypeCard, docType === 'Aadhaar Card' && styles.docTypeCardActive]}
-            onPress={() => setDocType('Aadhaar Card')}
-          >
-            <AppText variant="h3" color={colors.text}>🪪 Aadhaar Card</AppText>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={[styles.docTypeCard, docType === 'Ration Card' && styles.docTypeCardActive]}
-            onPress={() => setDocType('Ration Card')}
-          >
-            <AppText variant="h3" color={colors.text}>🪪 Ration Card</AppText>
-          </TouchableOpacity>
+          <View style={{ flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.lg }}>
+            <TouchableOpacity 
+              style={[styles.docTypeCard, { flex: 1, marginBottom: 0 }, docType === 'Ration Card' && styles.docTypeCardActive]}
+              onPress={() => setDocType('Ration Card')}
+            >
+              <AppText variant="h3" color={colors.text} align="center">🪪 Ration Card</AppText>
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              style={[styles.docTypeCard, { flex: 1, marginBottom: 0 }, docType === 'Aadhaar Card' && styles.docTypeCardActive]}
+              onPress={() => setDocType('Aadhaar Card')}
+            >
+              <AppText variant="h3" color={colors.text} align="center">🪪 Aadhaar Card</AppText>
+            </TouchableOpacity>
+          </View>
 
-          <AppText variant="body" style={[styles.label, {marginTop: spacing.md}]}>Upload Document</AppText>
+          {docType === 'Ration Card' ? (
+            <View style={{ marginBottom: spacing.lg }}>
+              <AppText variant="body" style={styles.label}>Ration Card Number (குடும்ப அட்டை எண்) *</AppText>
+              <AppInput
+                placeholder="e.g. 05/G/0123456 or 3312345678"
+                value={rationCardNumber}
+                onChangeText={setRationCardNumber}
+                autoCapitalize="characters"
+              />
+            </View>
+          ) : (
+            <View style={{ marginBottom: spacing.lg }}>
+              <AppText variant="body" style={styles.label}>Aadhaar Card Number *</AppText>
+              <AppInput
+                placeholder="e.g. 1234 5678 9012"
+                value={aadhaarNumber}
+                onChangeText={setAadhaarNumber}
+                keyboardType="number-pad"
+              />
+            </View>
+          )}
+
+          <AppText variant="body" style={[styles.label, {marginTop: spacing.xs}]}>Upload Document Copy (Optional)</AppText>
           
           <TouchableOpacity style={styles.uploadArea} onPress={handlePick}>
             {docUri ? (
@@ -107,7 +138,7 @@ export default function DocumentsScreen() {
             ) : (
               <View style={styles.uploadPlaceholder}>
                 <AppText variant="h2" style={{marginBottom: spacing.xs}}>☁️</AppText>
-                <AppText variant="h3" color={colors.text}>Tap to Upload</AppText>
+                <AppText variant="h3" color={colors.text}>Tap to Upload Proof</AppText>
                 <AppText variant="body" color={colors.textSecondary} align="center">JPG, PNG or PDF (Max. 5MB)</AppText>
               </View>
             )}
@@ -119,7 +150,7 @@ export default function DocumentsScreen() {
             title="Continue →" 
             onPress={handleContinue} 
             style={styles.continueButton}
-            disabled={!docUri}
+            disabled={docType === 'Ration Card' ? !rationCardNumber : (!aadhaarNumber && !docUri)}
           />
         </View>
       </View>

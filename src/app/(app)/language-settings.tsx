@@ -86,16 +86,6 @@ export default function LanguageSettingsScreen() {
           </TouchableOpacity>
         </View>
       </View>
-
-      {/* Background illustration */}
-      <View style={styles.illustrationContainer}>
-        {/* We use a placeholder image source if the beach one doesn't exist. */}
-        <Image
-          source={require('../../../assets/images/image copy 8.png')}
-          style={styles.illustration}
-          resizeMode="cover"
-        />
-      </View>
     </SafeAreaView>
   );
 }
@@ -178,16 +168,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     borderRadius: borderRadius.md,
   },
-  illustrationContainer: {
-    position: 'absolute',
-    bottom: 0,
-    width: width,
-    height: 200,
-    zIndex: 1,
-    opacity: 0.2, // dim it if we use a generic placeholder
-  },
-  illustration: {
-    width: '100%',
-    height: '100%',
-  }
 });

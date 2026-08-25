@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  ActivityIndicator
+  ActivityIndicator,
+  Alert
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -104,7 +105,11 @@ export default function VerifyScreen() {
       
     } catch (err: any) {
       console.log('Verification Error:', err);
-      setError(err.message || 'Invalid OTP');
+      const errMsg = err.message || 'Invalid OTP';
+      setError(errMsg);
+      if (errMsg.toLowerCase().includes('ration card')) {
+        Alert.alert('Ration Card Already Registered', errMsg);
+      }
     } finally {
       setLoading(false);
     }
